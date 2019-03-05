@@ -1,0 +1,21 @@
+# Sublime
+Index/
+*/Cache/*
+*.sublime_license
+*.sublime_session
+*.cache
+Sublime Text 3/Backup/*
+Sublime Text 3/Packages/*
+Sublime Text 3/Installed Packages/*
+
+# Atom
+AtomSettings/compile-cache/
+AtomSettings/blob-store/
+AtomSettings/.apm/
+AtomSettings/.node-gyp/
+AtomSettings/storage
+AtomSettings/Packages/*
+AtomSettings/packages/*
+
+#bash
+Bash_Settings/machine-specific/*
