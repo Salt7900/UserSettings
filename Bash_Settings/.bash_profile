@@ -87,4 +87,9 @@ alias ls='ls -Gh'
 alias lsa="ls -a"
 alias lsla="ls -la"
 
+# alias for accessing docker containers
+alias dlf="docker logs --follow"
+alias da="docker exec -it $1 bash"
+alias dockerkillall="docker kill $(docker ps -q)"
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
