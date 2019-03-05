@@ -17,7 +17,7 @@
 # Aliases are command shortcuts
 [alias]
   current = rev-parse --abbrev-ref HEAD
-  shipit = "!push origin (git current)"
+  shipit = "!git push origin $(git current)"
   returnit = "!git pull origin $(git current)"
   co = checkout
 
