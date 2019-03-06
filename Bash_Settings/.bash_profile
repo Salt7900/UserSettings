@@ -91,5 +91,6 @@ alias lsla="ls -la"
 alias dlf="docker logs --follow"
 alias da="docker exec -it $1 bash"
 alias dockerkillall="docker kill $(docker ps -q)"
+alias df="docker restart"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
