@@ -13,6 +13,7 @@ function sourceFiles() {
   done
   # load git completion
   source $bash_profile_directory/.git-completion.bash
+  source $bash_profile_directory/.git-shortcuts
 }
 
 #RUBY
