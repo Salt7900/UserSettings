@@ -1,8 +1,3 @@
-# echo is like puts for bash (bash is the program running in your terminal)
-echo "Loading ~/.bash_profile a shell script that runs in every new terminal you open"
-
-# $VARIABLE will render before the rest of the command is executed
-echo "Logged in as $USER at $(hostname)"
 
 function sourceFiles() {
   # get machine specific vars
@@ -19,16 +14,17 @@ function sourceFiles() {
 # Load RVM into a shell session *as a function*
 # Path for RVM
 export PATH="$PATH:$HOME/.rvm/bin"
-source ~/.profile
+if [ -f ~/.profile ]; then
+  source ~/.profile
+fi
 
 # Python
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # Node/NVM
-export NVM_DIR="/Users/bfallon/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Postgres Command Line tools
@@ -40,10 +36,6 @@ export PATH=$PATH:~/bin
 
 # Machine Specific && git-completion
 sourceFiles
-
-if [ -f ~/.git-completion.bash ]; then
-  . ~/.git-completion.bash
-fi
 
 # A more colorful prompt
 # \[\e[0m\] resets the color to default color
@@ -94,3 +86,4 @@ alias dockerkillall="docker kill $(docker ps -q)"
 alias df="docker restart"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
