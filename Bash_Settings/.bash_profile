@@ -1,4 +1,3 @@
-
 function sourceFiles() {
   # get machine specific vars
   local bash_profile_directory=$(dirname $(realpath ~/.bash_profile))
@@ -14,7 +13,7 @@ function sourceFiles() {
 #RUBY
 # Load RVM into a shell session *as a function*
 # Path for RVM
-export PATH="$PATH:$HOME/.rvm/bin"
+test -d "$HOME/.rvm" && export PATH="$PATH:$HOME/.rvm/bin"
 if [ -f ~/.profile ]; then
   source ~/.profile
 fi
@@ -26,13 +25,16 @@ eval "$(pyenv init -)"
 
 # Node/NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Postgres Command Line tools
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
-# Path for brew
+# Path for brew on X86
 test -d /usr/local/bin && export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+# Path for brew on apple silicon
+test -d /opt/homebrew/bin && export PATH="/opt/homebrew/bin:$PATH"
 export PATH=$PATH:~/bin
 
 # Machine Specific && git-completion
@@ -85,6 +87,3 @@ alias dlf="docker logs --follow"
 alias da="docker exec -it $1 bash"
 alias dockerkillall="docker kill $(docker ps -q)"
 alias df="docker restart"
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -51,7 +51,7 @@
   amend= commit --verbose --amend
 [user]
 	name = Salt7900
-	email = bfallon@narrativescience.com
+	email = bnfallon@gmail.com
 
 [color]
     branch = auto
